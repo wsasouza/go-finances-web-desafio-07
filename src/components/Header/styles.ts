@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  path?: 'list' | 'import';
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -17,19 +18,40 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      display: flex;
+
       a {
-        color: #fff;
-        text-decoration: none;
         font-size: 16px;
+        text-decoration: none;
         transition: opacity 0.2s;
+        transition: transform 0.2s;
 
         & + a {
           margin-left: 32px;
         }
 
         &:hover {
-          opacity: 0.6;
+          font-weight: bold;
+          transform: translate(4px, -4px);
+          opacity: 1;
         }
+
+        hr {
+          margin-top: 10px;
+          padding: 0.5px;
+        }
+      }
+
+      .import {
+        color: ${({ path }) => (path === 'import' ? '#ff872c' : '#fff')};
+        font-weight: ${({ path }) => (path === 'import' ? 'bold' : 'normal')};
+        opacity: ${({ path }) => (path === 'import' ? '1' : '0.6')};
+      }
+
+      .list {
+        color: ${({ path }) => (path === 'list' ? '#ff872c' : '#fff')};
+        font-weight: ${({ path }) => (path === 'list' ? 'bold' : 'normal')};
+        opacity: ${({ path }) => (path === 'list' ? '1' : '0.6')};
       }
     }
   }

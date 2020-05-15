@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 
 interface UploadProps {
